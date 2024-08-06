@@ -35,4 +35,8 @@ make
 3. The output will be displayed in the data folder.
 
 ## References
+
+https://docs.ultralytics.com/models/yolov5/
+https://learn.microsoft.com/en-us/vcpkg/get_started/get-started-vscode?pivots=shell-cmd
+https://docs.opencv.org/4.x/d3/d52/tutorial_windows_install.html
 https://github.com/RsGoksel/Cpp-Object-Detection-Yolov5-OpenCV
