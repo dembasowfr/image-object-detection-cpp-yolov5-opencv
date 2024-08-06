@@ -1,0 +1,3 @@
+/home/dembasow/ai/image-object-detection-cpp-yolov5-opencv/build/CMakeFiles/YOLOv5_Detector.dir
+/home/dembasow/ai/image-object-detection-cpp-yolov5-opencv/build/CMakeFiles/edit_cache.dir
+/home/dembasow/ai/image-object-detection-cpp-yolov5-opencv/build/CMakeFiles/rebuild_cache.dir
