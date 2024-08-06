@@ -1,23 +1,14 @@
 cmake_minimum_required(VERSION 3.10)
 project(YOLOv5_Detector)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 
-# Include directories
-include_directories(include)
-
-# Find OpenCV
 find_package(OpenCV REQUIRED)
 
-# Add source files
-set(SOURCES
-    src/Detector.cpp
-    src/main.cpp
-    src/Utils.cpp
-)
+include_directories(include ${OpenCV_INCLUDE_DIRS})
 
-# Add executable
-add_executable(${PROJECT_NAME} ${SOURCES})
+file(GLOB SOURCES "src/*.cpp")
 
-# Link OpenCV libraries
-target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
+add_executable(YOLOv5_Detector ${SOURCES})
+
+target_link_libraries(YOLOv5_Detector ${OpenCV_LIBS})
