@@ -4,21 +4,31 @@
 #include "Utils.h"
 
 int main(int argc, char** argv) {
-    std::string imagePath = "../data/input/image.png";
+
+
+    // Check if the user wants to use CUDA
     bool useCUDA = argc > 1 && strcmp(argv[1], "cuda") == 0;
 
+    std::string imagePath = "../data/input/image.webp";
     Image image(imagePath);
     if (image.isEmpty()) {
         return -1;
     }
 
-    Detector detector("../models/yolov5s.onnx", useCUDA);
+    std::string modelPath = "../models/yolov5s.onnx";
+    Detector detector(modelPath, useCUDA);
     std::vector<Detection> detections;
-    detector.detect(image.getMat(), detections);
 
-    auto classList = loadClassList("../data/classes.txt");
+
+    std::string classesPath = "../data/input/classes.txt";
+    auto classList = loadClassList(classesPath);
+
+
+    detector.detect(image.getMat(), detections, classList);
+
+    
     image.drawDetections(detections, classList);
-    image.show("output", 800);
+    image.show("Detections", 800);
 
     return 0;
 }

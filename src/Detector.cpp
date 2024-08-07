@@ -8,6 +8,8 @@ const float NMS_THRESHOLD = 0.4;
 const float CONFIDENCE_THRESHOLD = 0.4;
 
 Detector::Detector(const std::string& modelPath, bool useCUDA) {
+
+
     net = cv::dnn::readNet(modelPath);
 
     if (useCUDA) {
@@ -20,10 +22,12 @@ Detector::Detector(const std::string& modelPath, bool useCUDA) {
         net.setPreferableTarget(cv::dnn::DNN_TARGET_CPU);
     }
 
-    //classList = loadClassList("../data/classes.txt");
+
 }
 
+// This function is used to format the input image to the required size for YOLOv5 ✅
 cv::Mat Detector::formatYOLOv5(const cv::Mat& source) {
+
     int col = source.cols;
     int row = source.rows;
     int _max = std::max(col, row);
@@ -32,11 +36,15 @@ cv::Mat Detector::formatYOLOv5(const cv::Mat& source) {
     return result;
 }
 
-void Detector::detect(const cv::Mat& image, std::vector<Detection>& output) {
+
+// This function is used to detect objects in the input image ✅
+void Detector::detect(const cv::Mat& image, std::vector<Detection>& output, const std::vector<std::string>& classList) {
+
+    // blob is the input size for YOLOv5
     cv::Mat blob;
     auto inputImage = formatYOLOv5(image);
 
-    cv::dnn::blobFromImage(inputImage, blob, 1.0 / 255.0, cv::Size(INPUT_WIDTH, INPUT_HEIGHT), cv::Scalar(), true, false);
+    cv::dnn::blobFromImage(inputImage, blob, 1. / 255.0, cv::Size(INPUT_WIDTH, INPUT_HEIGHT), cv::Scalar(), true, false);
     net.setInput(blob);
 
     std::vector<cv::Mat> outputs;
@@ -46,6 +54,7 @@ void Detector::detect(const cv::Mat& image, std::vector<Detection>& output) {
     float yFactor = inputImage.rows / INPUT_HEIGHT;
     float* data = (float*)outputs[0].data;
 
+    // This is the number of classes in the model = 
     const int dimensions = 85;
     const int rows = 25200;
 
@@ -64,6 +73,9 @@ void Detector::detect(const cv::Mat& image, std::vector<Detection>& output) {
             if (maxClassScore > SCORE_THRESHOLD) {
                 confidences.push_back(confidence);
                 classIds.push_back(classId.x);
+
+
+                // Width, height and x,y coordinates of bounding box
 
                 float x = data[0];
                 float y = data[1];

@@ -1,3 +1,9 @@
+
+
+# YOLOv5 Object Detection with C++ and OpenCV
+
+![yolov5](./build/output.jpg)
+
 ## Introduction
 
 
@@ -30,12 +36,19 @@ This is a project to demonstrate the use of YOLOv5 with cpp and opencv to detect
 
 Run the following commands:
 ```
+mkdir build
 cd build
 cmake ..
 make
-./yolov5
+./YOLOv5_Detector
 ```
 3. The output will be displayed in the data folder.
+
+
+## Testing
+
+|---------|---------|
+| ![Input Image](./data/input/image.jpg) | ![Output Image](./build/output-1.jpg) |
 
 ## References
 

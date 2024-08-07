@@ -7,7 +7,7 @@
 class Detector {
 public:
     Detector(const std::string& modelPath, bool useCUDA);
-    void detect(const cv::Mat& image, std::vector<Detection>& output);
+    void detect(const cv::Mat& image, std::vector<Detection>& output, const std::vector<std::string>& className);
 
 private:
     cv::dnn::Net net;

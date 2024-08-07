@@ -19,6 +19,7 @@ cv::Mat& Image::getMat() {
 }
 
 void Image::drawDetections(const std::vector<Detection>& detections, const std::vector<std::string>& classNames) {
+    
     for (const auto& detection : detections) {
         auto box = detection.box;
         auto classId = detection.class_id;
@@ -30,10 +31,16 @@ void Image::drawDetections(const std::vector<Detection>& detections, const std::
 }
 
 void Image::show(const std::string& windowName, int width) const {
+
+
     int targetHeight = static_cast<int>(mat.rows * static_cast<float>(width) / mat.cols);
     cv::Size newSize(width, targetHeight);
     cv::Mat resizedImage;
     cv::resize(mat, resizedImage, newSize);
-    cv::imshow(windowName, resizedImage);
+
+    // The GUI window is not displayed in the browser because I am using WSL(Windows Subsystem for Linux)
+    //cv::imshow(windowName, resizedImage);
+    //instead of showing the image, save it to a file
+    cv::imwrite("output.jpg", resizedImage);
     cv::waitKey(0);
 }
