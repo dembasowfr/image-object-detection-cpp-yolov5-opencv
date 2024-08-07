@@ -47,7 +47,7 @@ make
 
 ## Testing
 
-|---------|---------|
+|----------------------------------------|---------------------------------------|
 | ![Input Image](./data/input/image.jpg) | ![Output Image](./build/output-1.jpg) |
 
 ## References
