@@ -48,9 +48,11 @@ make
 
 
 ## Testing
+
+
 | Input Image                            | Output Image                          |
 |----------------------------------------|---------------------------------------|
-| ![Input Image](./data/input/image.jpg) | ![Output Image](./build/output-1.jpg) |
+| <img src="./data/input/image.jpg" width="300"/> | <img src="./build/output-1.jpg" width="300"/> |
 
 
 
