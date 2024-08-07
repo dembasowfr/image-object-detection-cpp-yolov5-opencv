@@ -8,6 +8,8 @@
 
 
 This is a project to demonstrate the use of YOLOv5 with cpp and opencv to detect objects in a given image input.
+YoloV5 is a powerful object detection model that can be used in various applications such as autonomous vehicles, security systems, and many more.
+This project uses the YOLOv5 model to detect objects in an image and display the output with bounding boxes around the detected objects.
 
 ## Requirements
 
@@ -49,6 +51,19 @@ make
 | Input Image                            | Output Image                          |
 |----------------------------------------|---------------------------------------|
 | ![Input Image](./data/input/image.jpg) | ![Output Image](./build/output-1.jpg) |
+
+<style>
+  table {
+    width: 100%;
+  }
+  table img {
+    width: 100%;
+    height: auto;
+  }
+</style>
+
+## Conclusion
+The project demonstrates the use of YOLOv5 with cpp and opencv to detect objects in a given image input. The project can be further extended to detect objects in a video stream or a live feed from a camera. 
 
 ## References
 
