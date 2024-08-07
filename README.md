@@ -52,15 +52,7 @@ make
 |----------------------------------------|---------------------------------------|
 | ![Input Image](./data/input/image.jpg) | ![Output Image](./build/output-1.jpg) |
 
-<style>
-  table {
-    width: 100%;
-  }
-  table img {
-    width: 100%;
-    height: auto;
-  }
-</style>
+
 
 ## Conclusion
 The project demonstrates the use of YOLOv5 with cpp and opencv to detect objects in a given image input. The project can be further extended to detect objects in a video stream or a live feed from a camera. 
